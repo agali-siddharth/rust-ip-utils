@@ -1,7 +1,6 @@
 use experiments::ip_utils;
 
 fn main() {
-    println!("Hello, world!");
     let ip_string = "255.255.224.0";
     println!(
         "subnet {} is {}",
