@@ -27,3 +27,18 @@ pub mod ip_utils {
         num | (1 << bit) == num
     }
 }
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn check_valid_subnet() {
+        assert_eq!(crate::ip_utils::is_subnet_mask_valid("255.255.255.0"), true);
+    }
+    #[test]
+    fn check_invalid_subnet() {
+        assert_eq!(
+            crate::ip_utils::is_subnet_mask_valid("255.255.100.0"),
+            false
+        );
+    }
+}
