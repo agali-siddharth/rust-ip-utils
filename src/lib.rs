@@ -23,7 +23,7 @@ pub mod ip_utils {
     }
 
     fn is_bit_set(num: u32, bit: u8) -> bool {
-        num | (1 << bit) == num
+        num & (1 << bit) != 0
     }
 
     fn is_ip_valid(ip_string: &str) -> bool {
@@ -60,8 +60,8 @@ pub mod ip_utils {
         #[test]
         fn test_is_bit_set() {
             assert_eq!(is_bit_set(0xff, 7), true);
-            assert_eq!(is_bit_set(0x1001, 0), true);
-            assert_eq!(is_bit_set(0x1001, 1), false);
+            assert_eq!(is_bit_set(0b1001, 0), true);
+            assert_eq!(is_bit_set(0b1001, 1), false);
         }
 
         #[test]
